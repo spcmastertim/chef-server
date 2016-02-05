@@ -1,9 +1,0 @@
-{
-	"id": "sheldon",
-	"comment": "Sheldon Hoople",
-	"uid": 2003,
-	"gid": 0,
-	"home": "/home/sheldon",
-	"shell": "/bin/bash",
-	"platform": "linux"
-}
