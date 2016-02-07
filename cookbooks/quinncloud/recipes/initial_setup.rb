@@ -2,21 +2,43 @@
 # If you need to rerun this, remove the file named configured
 # from /var/lock
 
-# lock file test/create
-if File.exists?(/var/lock/configured) then
-  exit
-else file '/var/lock/configured' do
-  content 'Do not remove unless you need to rerun the base configuration'
-  mode '0744'
-  owner 'root'
-  group 'root'
-end
-
 # install packages
-base_packages = "#{node['packages']}"
+base_packages = "#{node['package_set']}"
 package "install_set" do
   package_name [base_packages]
-  action :install
+  action :upgrade
 end
 
-# upgrade system
+# Set up configurations for vi,bash,etc
+# Since we want a unified interface we will move in common config files for the users and root
+user 'tquinn' do
+  comment 'default user account'
+  uid '1000'
+  gid "tquinn"
+  home '/home/tquinn'
+  shell '/bin/bash'
+  manage_home true
+  action :create
+end
+
+cookbook_file "/home/tquinn/.vimrc" do
+  source 'vimrc'
+  owner "tquinn"
+  group "tquinn"
+  mode "0755"
+  action :create
+end
+cookbook_file "/home/tquinn/.bashrc" do
+  source 'bashrc'
+  owner "tquinn"
+  group "tquinn"
+  mode "0755"
+  action :create
+end
+cookbook_file "/home/tquinn/.gitconfig" do
+  source 'gitconfig'
+  owner "tquinn"
+  group "tquinn"
+  mode "0755"
+  action :create
+end
