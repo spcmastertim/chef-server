@@ -6,6 +6,7 @@
 base_packages = "#{node['package_set']}"
 package "install_set" do
   package_name [base_packages]
+  not_if base_packages = nil
   action :upgrade
 end
 
@@ -42,3 +43,20 @@ cookbook_file "/home/tquinn/.gitconfig" do
   mode "0755"
   action :create
 end
+
+# Time to use that tar cookbook to install ruby version 2.2
+cookbook_file "/home/tquinn/ruby-2.3.0.tar.gz" do
+  source "ruby-2.3.0.tar.gz"
+  owner "tquinn"
+  group "tquinn"
+  mode "0644"
+  action :create
+end
+
+directory '/opt/ruby' do
+  owner 'tquinn'
+  group 'tquinn'
+  mode '775'
+  action :create
+end
+
