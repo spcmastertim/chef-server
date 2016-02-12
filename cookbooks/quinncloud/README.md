@@ -1,23 +1,19 @@
 quinncloud Cookbook
 ===================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+Basic setup for the quinncloud home, including raspberryPi's and other devices. Probably not useful for many other people.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - quinncloud needs toaster to brown your bagel.
+- `tar` - quinncloud needs tar for installing ruby
+. `cron` - used for scheduling jobs
+. `logrotate` - keeps those hard to reach logfiles nice and tidy
+. `motd` - marks all of the quinncloud managed devices as such
+. `compat_resource` - I really need to see where this is getting pulled in...
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
+Quinncloud specific attributes you need to set.  Most are held in the roles as I use the roles to pivot a lot of variables, but most defaults are held in attributes.
 
-e.g.
 #### quinncloud::default
 <table>
   <tr>
@@ -37,7 +33,7 @@ e.g.
 Usage
 -----
 #### quinncloud::default
-TODO: Write usage instructions for each cookbook.
+default doesn't get you much more than an motd.  See the other recipes for the heavy lifting.
 
 e.g.
 Just include `quinncloud` in your node's `run_list`:
@@ -53,9 +49,8 @@ Just include `quinncloud` in your node's `run_list`:
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+Contributions are welcome, but don't be horribly surprised to ask you who you are and why you are playing with my cookbook.  I am just too cheap to buy a private repo.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -65,4 +60,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Author: Tim Quinn - tim@quinncloud.com 
