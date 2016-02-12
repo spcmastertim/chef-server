@@ -1,0 +1,12 @@
+{
+  "name": "dev",
+  "description": "Development Environment",
+  "json_class": "Chef::Environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "environment"
+}

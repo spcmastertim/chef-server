@@ -1,0 +1,11 @@
+{
+  "name": "chef-client",
+  "chef_environment": "dev",
+  "run_list": [
+  "role[testing]"
+]
+,
+  "normal": {
+    "tags": null
+  }
+}

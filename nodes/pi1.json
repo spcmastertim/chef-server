@@ -1,0 +1,11 @@
+{
+  "name": "pi1",
+  "chef_environment": "prod",
+  "run_list": [
+  "role[raspberry_pi]"
+]
+,
+  "normal": {
+    "tags": null
+  }
+}

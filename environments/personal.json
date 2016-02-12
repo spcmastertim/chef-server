@@ -1,0 +1,12 @@
+{
+  "name": "personal",
+  "description": "Environment for personal machines and laptops",
+  "json_class": "Chef::Environment",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "environment"
+}
