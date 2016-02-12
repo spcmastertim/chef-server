@@ -1,6 +1,13 @@
 # Chef
 .chef/*.pem
 .chef/encrypted_data_bag_secret
+.chef/chef-server.attlocal.net.crt
+.chef/chef-server.attlocal.net.key
+.chef/knife.rb
+.chef/quinncloud-validator.pem
+.chef/syntaxcache
+.chef/tquinn.pem
+.chef/trusted_certs
 
 # Ruby
 .rake_test_cache
