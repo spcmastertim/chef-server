@@ -3,7 +3,10 @@
   "description": "managing the raspberry pi devices",
   "json_class": "Chef::Role",
   "default_attributes": {
-    "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git"
+    "install_adds": {
+      "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git",
+      "gem_set": "rails"
+    }
   },
   "override_attributes": {
 
