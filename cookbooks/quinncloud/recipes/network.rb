@@ -15,5 +15,3 @@ cookbook_file '/etc/hosts' do
   mode '0755'
   action :create
 end
-
-
