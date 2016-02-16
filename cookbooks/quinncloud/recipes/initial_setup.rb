@@ -68,37 +68,24 @@ end
 bash 'extract_build_ruby' do
   cwd ::File.dirname('/opt/ruby/')
   code <<-EOH
+    cd /opt/ruby/
     tar xzf ruby-2.3.0.tar.gz
     cd ruby-2.3.0
+    make clean
     ./configure --enable-shared
     make all
     make test
-    if [$? -ne 0]
-      then
-        make install
-      else
-        echo 'trying to make sure the directory is right and trying one more time'
-        cd /opt/ruby/ruby-2.3.0
-        ./configure --enable-shared
-        make all
-        make test
-        if [?! -ne 0]
-          then
-            echo 'giving up, tests broken'
-            exit 20
-          else echo 'fix your directory structure!'
-        fi
-    fi
-    echo 'Ruby 2.3.0 installed'
+    make install
+    touch /opt/ruby/installed
     EOH
   user 'root'
   group 'root'
+  not_if { ::File.exist?('/opt/ruby/installed') }
   action :run
 end
 
-# Now we have sqlite, ruby 2.3.0, and ruby installed.  Oh snap - gemfile!
-# So fuck a bunch of that noise, lets just install rails and go from there..
-
 gem_package 'rails' do
+  not_if { ::File.exist?('/usr/local/bin/rails') }
   action :install
+  ignore_failure true
 end
