@@ -4,8 +4,21 @@
   "json_class": "Chef::Role",
   "default_attributes": {
     "install_adds": {
-      "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git",
-      "gem_set": "rails"
+      "gem_set": "rails",
+      "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git"
+    },
+    "ssh_config": {
+      "keys_set": true,
+      "use_dsa": false,
+      "use_ed25519": false,
+      "use_rsa": true,
+      "key_size": "4096",
+      "port": "22",
+      "alt_port": "2222",
+      "root_login": "without-password",
+      "server_key_size": "1024",
+      "enable_scp": true,
+      "use_pam": true
     }
   },
   "override_attributes": {
