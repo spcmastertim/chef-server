@@ -18,7 +18,7 @@
       "root_login": "without-password",
       "server_key_size": "1024",
       "enable_scp": true,
-      "use_pam": true
+      "log_level": "INFO"
     }
   },
   "override_attributes": {

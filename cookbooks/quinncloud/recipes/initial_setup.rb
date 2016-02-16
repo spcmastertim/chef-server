@@ -90,3 +90,16 @@ gem_package 'rails' do
   action :install
   ignore_failure true
 end
+
+template '/etc/ssh/sshd_config' do
+  source 'sshd_config.erb'
+  user 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[ssh]', :delayed
+  action :create
+end
+
+service 'ssh' do
+  action :nothing
+end
