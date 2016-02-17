@@ -3,7 +3,7 @@
 # from /var/lock
 
 # install packages
-%w( "#node['install_adds']['package_set']" ).each do |installset|
+%w( node['install_adds']['package_set'] ).each do |installset|
   package 'installset' do
     package_name installset
     not_if { base_packages.empty? }
