@@ -91,6 +91,17 @@ gem_package 'rails' do
   ignore_failure true
 end
 
+directory '/home/tquinn/.ssh' do
+end
+
+cookbook_file '/home/tquinn/.ssh/authorized_keys' do
+  source 'tquinn_authorized_keys'
+  user 'tquinn'
+  group 'tquinn'
+  mode '0600'
+end
+
+
 template '/etc/ssh/sshd_config' do
   source 'sshd_config.erb'
   user 'root'

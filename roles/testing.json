@@ -1,16 +1,33 @@
 {
-  "name": "testing",
-  "description": "chef-client node for testing",
+  "name": "raspberry_pi",
+  "description": "managing the raspberry pi devices",
   "json_class": "Chef::Role",
   "default_attributes": {
-
+    "install_adds": {
+      "gem_set": "rails",
+      "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git"
+    },
+    "ssh_config": {
+      "keys_set": true,
+      "use_dsa": false,
+      "use_ed25519": false,
+      "use_rsa": true,
+      "key_size": "4096",
+      "port": "22",
+      "alt_port": "2222",
+      "root_login": "without-password",
+      "server_key_size": "1024",
+      "enable_scp": true,
+      "log_level": "INFO"
+    }
   },
   "override_attributes": {
 
   },
   "chef_type": "role",
   "run_list": [
-
+  "recipe[hello_chef_server]",
+  "recipe[quinncloud::initial_setup]"
 ]
 ,
   "env_run_lists": {
