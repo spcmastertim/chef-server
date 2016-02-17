@@ -3,24 +3,21 @@
 # from /var/lock
 
 # install packages
-base_packages = "#{node['install_adds']['package_set']}"
-package 'install_set' do
-  package_name [base_packages]
-  not_if base_packages = nil
-  action :upgrade
+%w( "#node['install_adds']['package_set']" ).each do |installset|
+  package 'installset' do
+    package_name installset
+    not_if { base_packages.empty? }
+    action :upgrade
+  end
 end
 
 # Set up configurations for vi,bash,etc
 # Since we want a unified interface we will move in common config
 # files for the users and root
-user 'tquinn' do
-  comment 'default user account'
-  uid '1000'
-  gid 'tquinn'
-  home '/home/tquinn'
-  shell '/bin/bash'
-  manage_home true
-  action :create
+%w( admin tquinn ).each do |group|
+  users_manage group do
+    action :create
+  end
 end
 
 cookbook_file '/home/tquinn/.vimrc' do
@@ -100,7 +97,6 @@ cookbook_file '/home/tquinn/.ssh/authorized_keys' do
   group 'tquinn'
   mode '0600'
 end
-
 
 template '/etc/ssh/sshd_config' do
   source 'sshd_config.erb'
