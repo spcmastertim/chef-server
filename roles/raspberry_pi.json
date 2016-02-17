@@ -8,17 +8,17 @@
       "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git"
     },
     "ssh_config": {
-      "keys_set": true,
-      "use_dsa": false,
-      "use_ed25519": false,
-      "use_rsa": true,
-      "key_size": "4096",
-      "port": "22",
       "alt_port": "2222",
+      "enable_scp": true,
+      "key_size": "4096",
+      "keys_set": true,
+      "log_level": "INFO",
+      "port": "22",
       "root_login": "without-password",
       "server_key_size": "1024",
-      "enable_scp": true,
-      "log_level": "INFO"
+      "use_dsa": false,
+      "use_ed25519": false,
+      "use_rsa": true
     }
   },
   "override_attributes": {
