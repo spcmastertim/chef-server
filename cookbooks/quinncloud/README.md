@@ -23,9 +23,93 @@ Quinncloud specific attributes you need to set.  Most are held in the roles as I
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['quinncloud']['bacon']</tt></td>
+    <td><tt>['sudo']['groups']</tt></td>
+    <td>list</td>
+    <td>list of names of groups to get sudo access</td>
+    <td><tt>none</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['authorization']['passwordless']</tt></td>
     <td>Boolean</td>
-    <td>whether to include bacon</td>
+    <td>enable passwordless sudo for users</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <td><tt>['install_adds']['gem_set']</tt></td>
+    <td>list</td>
+    <td>list of gems to install</td>
+    <td><tt>none</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['install_adds']['package_set']</tt></td>
+    <td>list</td>
+    <td>packages to install from repositories</td>
+    <td><tt>epel for centos</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['atl_port']</tt></td>
+    <td>integer</td>
+    <td>alternate ssh port</td>
+    <td><tt>2222</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['enable_scp']</tt></td>
+    <td>Boolean</td>
+    <td>enable scp server via ssh daemon</td>
+    <td><tt>true</tt></td>
+  </tr<
+  <tr>
+    <td><tt>['ssh_config']['key_size']</tt></td>
+    <td>integer</td>
+    <td>size of key for RSA encryption</td>
+    <td><tt>2048</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['keys_set']</tt></td>
+    <td>Boolean</td>
+    <td>set true if using ssh keys.  You *should* be doing this</td>
+    <td><tt>true</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['log_level']</tt></td>
+    <td>string</td>
+    <td>ssh server log level for /var/log</td>
+    <td><tt>info</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['port']</tt></td>
+    <td>integer</td>
+    <td>primary listening port for ssh server</td>
+    <td><tt>22</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['root_login']</tt></td>
+    <td>string</td>
+    <td>if and how root login is performed</td>
+    <td><tt>no</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['server_key_size']</tt></td>
+    <td>integer</td>
+    <td>Size of server side key, anything larger than 1024 puts a heavy load</td>
+    <td><tt>1024</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['use_dsa']</tt></td>
+    <td>Boolean</td>
+    <td>use the dsa encryption method</td>
+    <td><tt>false</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['use_ed25519']</tt></td>
+    <td>Boolean</td>
+    <td>use the ed25519 curve encryption method</td>
+    <td><tt>false</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['ssh_config']['use_rsa]</tt></td>
+    <td>Boolean</td>
+    <td>use the rsa method of encryption</td>
     <td><tt>true</tt></td>
   </tr>
 </table>
@@ -60,4 +144,4 @@ Contributions are welcome, but don't be horribly surprised to ask you who you ar
 
 License and Authors
 -------------------
-Author: Tim Quinn - tim@quinncloud.com 
+Author: Tim Quinn - tim@quinncloud.com
