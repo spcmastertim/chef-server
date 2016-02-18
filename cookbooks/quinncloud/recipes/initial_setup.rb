@@ -3,13 +3,13 @@
 # from /var/lock
 
 # install packages
-install_me = node['install_adds']['package_set']
-install_me.each do |installset|
-  package 'installset' do
-    package_name installset
-    action :upgrade
-  end
-end
+#install_me = node['install_adds']['package_set']
+#install_me.each do |installset|
+#  package 'installset' do
+#    package_name installset
+#    action :upgrade
+#  end
+#end
 
 # Set up configurations for vi,bash,etc
 # Since we want a unified interface we will move in common config
