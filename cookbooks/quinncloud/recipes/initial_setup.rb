@@ -55,7 +55,7 @@ cookbook_file '/opt/ruby/ruby-2.3.0.tar.gz' do
   owner 'tquinn'
   group 'tquinn'
   mode '0644'
-  only_if { ::File.exist?('/opt/ruby/ruby-2.3.0.tar.gz') }
+  not_if { ::File.exist?('/opt/ruby/ruby-2.3.0.tar.gz') }
   action :create
 end
 

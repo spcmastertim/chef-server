@@ -4,6 +4,15 @@
   "json_class": "Chef::Role",
   "default_attributes": {
     "install_adds": {
+      "authorization": {
+        "sudo": {
+          "groups": [
+            "wheel",
+            "adm"
+          ],
+          "passwordless": "true"
+        }
+      },
       "gem_set": "rails",
       "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git"
     },
