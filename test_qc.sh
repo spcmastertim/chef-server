@@ -14,18 +14,16 @@ rubocop_exec=`which rubocop`
 # Also, if you are too lazy to respond I only ask once!
 if [ -d $cookbook_home/$cookbook_name ]
 then
-  echo "please enter a cookbook name"
-  if [ -z $cookbook_name ]
+  echo "$cookbook_name will be checked"
+else
+  read -e cookbook_name
+  if [ -d $cookbook_home/$cookbook_name ]
+  export cookbook_name
   then
-    read -e cookbook_name
-    if [ -d $cookbook_home/$cookbook_name ]
-    export cookbook_name
-    then
-      echo "$cookbook_name will be checked"
-    else
-      echo "later tater"
-      exit 2
-    fi
+    echo "$cookbook_name will be checked"
+  else
+    echo "later tater"
+    exit 2
   fi
 fi
 
@@ -34,6 +32,7 @@ then
   echo "you forgot to install knife"
   exit 2
 else
+  echo "performing knife test"
   $knife_exe cookbook test $cookbook_name
 fi
 
@@ -42,6 +41,7 @@ then
   echo "you forgot to install foodcritic"
   exit 3
 else
+  echo "performing foodcritic test"
   $foodcritic_exec -t all $cookbook_home/$cookbook_name
 fi
 
@@ -50,6 +50,7 @@ then
   echo "you forgot to install rubocop"
   exit 4
 else
+  echo "performing rubocop checks"
   $rubocop_exec $cookbook_home/$cookbook_name
 fi
 
