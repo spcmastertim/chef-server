@@ -14,7 +14,7 @@
     },
     "install_adds": {
       "gem_set": "rails",
-      "package_set": "httpd httpd-tools lynx hdparm openssl-devel openssl-static openssh-server git p7zip p7zip-plugins"
+      "package_set": "epel-release dkms httpd httpd-tools lynx hdparm openssl-devel openssl-static openssh-server git p7zip p7zip-plugins"
     },
     "ssh_config": {
       "alt_port": "2222",

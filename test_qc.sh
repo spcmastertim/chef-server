@@ -12,10 +12,8 @@ rubocop_exec=`which rubocop`
 
 # Test to see if you forgot to enter a cookbook, if you did ask.
 # Also, if you are too lazy to respond I only ask once!
-if [ -d $cookbook_home/$cookbook_name ]
+if [ -z $cookbook_name ]
 then
-  echo "$cookbook_name will be checked"
-else
   read -e cookbook_name
   if [ -d $cookbook_home/$cookbook_name ]
   export cookbook_name
@@ -25,6 +23,8 @@ else
     echo "later tater"
     exit 2
   fi
+else
+  echo "testing $cookbook_name"
 fi
 
 if [ -z $knife_exe ]

@@ -14,7 +14,7 @@
         }
       },
       "gem_set": "rails",
-      "package_set": "apache2 apache2-utils lynx hdparm openssl openssl-blacklist openssh-server git"
+      "package_set": "apache2 apache2-utils dkms lynx hdparm openssl openssl-blacklist openssh-server git"
     },
     "ssh_config": {
       "alt_port": "2222",
