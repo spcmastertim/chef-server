@@ -25,7 +25,7 @@ end
 
 # test for the presence of the wordpress tarball before uploading
 cookbook_file 'wordpress' do
-  source "wordpress-#{node['wordpress_info']['version'].tar.gz}"
+  source "wordpress-#{node['wordpress_info']['version']}.tar.gz"
   owner 'www-data'
   group 'www-data'
   path node['wordpress_info']['install_dir'].to_s
