@@ -14,7 +14,6 @@
         }
       },
       "gem_set": "rails",
-      "package_set": "apache2 apache2-utils dkms lynx hdparm openssl openssl-blacklist openssh-server git"
     },
     "ssh_config": {
       "alt_port": "2222",
@@ -36,7 +35,8 @@
   "chef_type": "role",
   "run_list": [
   "recipe[hello_chef_server]",
-  "recipe[quinncloud::initial_setup]"
+  "recipe[quinncloud::initial_setup]",
+  "recipe[motd::default]"
 ]
 ,
   "env_run_lists": {

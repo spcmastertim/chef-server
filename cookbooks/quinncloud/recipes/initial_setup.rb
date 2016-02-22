@@ -78,7 +78,7 @@ bash 'extract_build_ruby' do
     EOH
   user 'root'
   group 'root'
-  not_if { ::File.exist?('/opt/ruby/installed') }
+  not_if { ::File.exist?('/opt/ruby/ruby-2.3.0/installed') }
   action :run
 end
 

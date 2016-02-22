@@ -36,7 +36,8 @@
   "chef_type": "role",
   "run_list": [
   "recipe[hello_chef_server]",
-  "recipe[quinncloud::initial_setup]"
+  "recipe[quinncloud::initial_setup]",
+  "recipe[motd::default]"
 ]
 ,
   "env_run_lists": {
