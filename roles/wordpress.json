@@ -4,7 +4,7 @@
   "json_class": "Chef::Role",
   "default_attributes": {
     "prereqs": {
-      "package_install": "nginx, gunicorn, php-mysql, php-pear, php5"
+      "package_install": "nginx gunicorn php5-mysql php5 mysql-server phpmyadmin"
     },
     "site_info": {
       "docroot": "/opt/wordpress",

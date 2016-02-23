@@ -103,10 +103,18 @@ template '/etc/ssh/sshd_config' do
   user 'root'
   group 'root'
   mode '0644'
-  notifies :restart, 'service[ssh]', :delayed
+  if node['platform_family'] == 'debian'
+    notifies :restart, 'service[ssh]', :delayed
+  else
+    notifies :restart, 'service[sshd]', :delayed
+  end
   action :create
 end
 
 service 'ssh' do
+  action :nothing
+end
+
+service 'sshd' do
   action :nothing
 end
