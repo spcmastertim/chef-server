@@ -1,9 +1,9 @@
 This server is property of <%= node['motd']['company'] %>
-<% if node['platform'] = 'raspbian' -%>
+<% if node['platform'] == 'raspbian' -%>
 	Enjoy some Raspberry Pi!
-<% elsif node['platform'] = 'centos' -%>
+<% elsif node['platform'] == 'centos' -%>
 	I can't believe it isn't RedHat!
-<% elsif node['platform'] = 'ubuntu' -%>
+<% elsif node['platform'] == 'ubuntu' -%>
 	I am because of who we are
 <% else -%>
 	I got nothing....
