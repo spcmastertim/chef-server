@@ -47,7 +47,7 @@ directory '/opt/ruby' do
   group 'tquinn'
   mode '775'
   action :create
-  not_if { ::File.exist?('/opt/ruby')}
+  not_if { ::File.exist?('/opt/ruby') }
 end
 
 # Upload the ruby tarball to the client
@@ -86,6 +86,28 @@ gem_package 'rails' do
   not_if { ::File.exist?('/usr/local/bin/rails') }
   action :install
   ignore_failure true
+end
+
+users_manage 'tquinn' do
+  action [:create]
+  data_bag 'tquinn'
+  manage_nfs_home_dirs false
+end
+
+users_manage 'admin' do
+  action [:create]
+  data_bag 'admin'
+  manage_nfs_home_dirs false
+end
+
+users_manage 'sysadmin' do
+  group_id 2300
+  action [:remove, :create]
+end
+
+users_manage 'chef-users' do
+  group_id 2400
+  action [:remove, :create]
 end
 
 directory '/home/tquinn/.ssh' do
