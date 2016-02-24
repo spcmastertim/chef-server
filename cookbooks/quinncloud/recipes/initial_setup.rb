@@ -63,6 +63,16 @@ cookbook_file '/opt/ruby/ruby-2.3.0.tar.gz' do
   action :create
 end
 
+# add the /etc/issue so ssh doesn't crap out
+cookbook_file '/etc/issue' do
+  source 'issue'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  not_if { ::File.exist?('/etc/issue') }
+  action :create
+end
+
 # Here is the conundrum, do I use a bash block or build a lwrp?  I
 # Will drop a bash block to get it working but this is really a crap
 # solution and i know it...  tq 2/15/16
