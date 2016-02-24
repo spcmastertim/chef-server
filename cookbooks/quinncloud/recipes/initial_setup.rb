@@ -19,6 +19,7 @@ include_recipe 'users::sysadmins'
 %w( admin tquinn ).each do |group|
   users_manage group do
     action :create
+    data_bag group
   end
 end
 
@@ -90,27 +91,28 @@ gem_package 'rails' do
   ignore_failure true
 end
 
-users_manage 'tquinn' do
-  action [:create]
-  data_bag 'tquinn'
-  manage_nfs_home_dirs false
-end
-
-users_manage 'admin' do
-  action [:create]
-  data_bag 'admin'
-  manage_nfs_home_dirs false
-end
-
-users_manage 'sysadmin' do
-  group_id 2300
-  action [:remove, :create]
-end
-
-users_manage 'chef-users' do
-  group_id 2400
-  action [:remove, :create]
-end
+# User management, to be moved to a loop
+# users_manage 'tquinn' do
+#   action [:create]
+#   data_bag 'tquinn'
+#   manage_nfs_home_dirs false
+# end
+#
+# users_manage 'admin' do
+#   action [:create]
+#   data_bag 'admin'
+#   manage_nfs_home_dirs false
+# end
+#
+# users_manage 'sysadmin' do
+#   group_id 2300
+#   action [:remove, :create]
+# end
+#
+# users_manage 'chef-users' do
+#   group_id 2400
+#   action [:remove, :create]
+# end
 
 directory '/home/tquinn/.ssh' do
   user 'tquinn'
