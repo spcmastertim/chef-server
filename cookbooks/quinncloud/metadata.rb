@@ -6,5 +6,4 @@ description      'Installs/Configures quinncloud specific software'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.3.10'
 depends          'users'
-depends          'users::sysadmins'
 depends          'sudo'

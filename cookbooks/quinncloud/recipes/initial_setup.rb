@@ -10,6 +10,8 @@
 #     action :upgrade
 #   end
 # end
+# Set up dependant recipes
+include_recipe "users::sysadmins"
 
 # Set up configurations for vi,bash,etc
 # Since we want a unified interface we will move in common config
