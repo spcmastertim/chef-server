@@ -28,7 +28,7 @@ cookbook_file '/opt/wordpress' do
   source "wordpress-#{node['wordpress_info']['version']}.tar.gz"
   owner 'www-data'
   group 'www-data'
-  path "#{node['wordpress_info']['install_dir']}/"
+  path "#{node['wordpress_info']['install_dir']}/wordpress-#{node['wordpress_info']['version']}.tar.gz"
   not_if { ::File.exist?("/opt/wordpress-#{node['wordpress_info']['version']}.tar.gz") }
 end
 
