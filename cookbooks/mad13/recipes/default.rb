@@ -24,12 +24,12 @@ directory '/opt' do
 end
 
 # test for the presence of the wordpress tarball before uploading
-cookbook_file 'wordpress' do
+cookbook_file '/opt/wordpress' do
   source "wordpress-#{node['wordpress_info']['version']}.tar.gz"
   owner 'www-data'
   group 'www-data'
-  path node['wordpress_info']['install_dir'].to_s
-  not_if { ::File.exist?("/opt/wordpress-#{node['wordpress_info']['verion']}.tar.gz") }
+  path "#{node['wordpress_info']['install_dir']}/"
+  not_if { ::File.exist?("/opt/wordpress-#{node['wordpress_info']['version']}.tar.gz") }
 end
 
 # Use the tar provider to handle the tarball.  This is not a built in resource
