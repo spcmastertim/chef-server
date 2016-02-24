@@ -47,6 +47,7 @@ directory '/opt/ruby' do
   group 'tquinn'
   mode '775'
   action :create
+  not_if { ::File.exist?('/opt/ruby')}
 end
 
 # Upload the ruby tarball to the client
@@ -69,10 +70,9 @@ bash 'extract_build_ruby' do
     cd /opt/ruby/
     tar xzf ruby-2.3.0.tar.gz
     cd ruby-2.3.0
-    make clean
+    make distclean
     ./configure --enable-shared
     make all
-    make test
     make install
     touch /opt/ruby/ruby-2.3.0/installed
     EOH
@@ -108,7 +108,7 @@ template '/etc/ssh/sshd_config' do
   mode '0644'
   if node['platform_family'] == 'debian'
     notifies :restart, 'service[ssh]', :delayed
-  else
+  elsif node['platform_family'] == 'rhel'
     notifies :restart, 'service[sshd]', :delayed
   end
   action :create
