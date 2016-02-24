@@ -19,7 +19,7 @@ include_recipe 'users::sysadmins'
 %w( admin tquinn ).each do |group|
   users_manage group do
     action :create
-    data_bag group
+    data_bag 'users'
   end
 end
 
