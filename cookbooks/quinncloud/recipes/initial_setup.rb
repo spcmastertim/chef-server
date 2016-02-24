@@ -74,7 +74,7 @@ bash 'extract_build_ruby' do
     make all
     make test
     make install
-    touch /opt/ruby/installed
+    touch /opt/ruby/ruby-2.3.0/installed
     EOH
   user 'root'
   group 'root'
@@ -89,6 +89,9 @@ gem_package 'rails' do
 end
 
 directory '/home/tquinn/.ssh' do
+  user 'tquinn'
+  group 'tquinn'
+  mode '0700'
 end
 
 cookbook_file '/home/tquinn/.ssh/authorized_keys' do

@@ -16,7 +16,7 @@
       "gem_set": "rails",
     },
     "ssh_config": {
-      "alt_port": "2222",
+      "alt_port": "22",
       "enable_scp": true,
       "key_size": "4096",
       "keys_set": true,
