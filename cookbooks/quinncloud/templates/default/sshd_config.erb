@@ -133,5 +133,9 @@ Banner /etc/issue
 
 # override default of no subsystems
 <% if node['ssh_config']['enable_scp'] -%>
+  <% if node['platform_family'] == 'rhel' -%>
 Subsystem	sftp	/usr/libexec/openssh/sftp-server
+  <% elsif node['platform_family'] == 'debian' -%>
+Subsystem sftp /usr/lib/openssh/sftp-server
+  <% end -%>
 <% end -%>
