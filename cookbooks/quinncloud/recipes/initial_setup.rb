@@ -164,4 +164,11 @@ end
 cookbook_file '/etc/ntp.conf' do
   source 'ntp.conf_client'
   mode '0664'
+  not_if { node['git_config']['server'] == true }
+end
+
+cookbook_file '/etc/ntp.conf' do
+  source 'ntp.conf_server'
+  mode '0644'
+  not_if { node['git_config']['server'] == false }
 end
