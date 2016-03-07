@@ -32,7 +32,7 @@ tar_extract 'wpcurrent' do
   creates '/opt/wordpress'
   user 'www-data'
   group 'www-data'
-  tar_flags node['wordpress_info']['tar_opts'].to_s
+  # tar_flags node['wordpress_info']['tar_opts']
   source "/#{node['wordpress_info']['install_dir']}/wordpress-#{node['wordpress_info']['version']}.tar.gz"
   action :extract_local
 end
