@@ -170,5 +170,5 @@ end
 cookbook_file '/etc/ntp.conf' do
   source 'ntp.conf_server'
   mode '0644'
-  not_if { node['git_config']['server'] == false }
+  not_if { node['hostname'] == 'pi1' }
 end
