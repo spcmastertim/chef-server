@@ -3,6 +3,13 @@
   "description": "managing the raspberry pi devices",
   "json_class": "Chef::Role",
   "default_attributes": {
+    "git_config": {
+      "client": "true",
+      "git_method": "ssh",
+      "git_mount": "/media/tquinn/media/git_repo/",
+      "server": "true",
+      "server_pkg": "gitweb gitstats gitolite3 git-sh git-repair git-extras git-all mksh mediawiki autotrace html2ps tcl-tclreadline"
+    },
     "install_adds": {
       "authorization": {
         "sudo": {
@@ -28,13 +35,6 @@
       "use_ed25519": false,
       "use_pam": true,
       "use_rsa": true
-    },
-    "git_config": {
-      "client": "true",
-      "server": "true",
-      "server_pkg": "gitweb gitstats gitolite3 git-sh git-repair git-extras git-all mksh mediawiki autotrace html2ps tcl-tclreadline",
-      "git_method": "ssh",
-      "git_mount": ""
     }
   },
   "override_attributes": {

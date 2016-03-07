@@ -8,13 +8,6 @@
 #
 # direct all questions to admin@mad13ent.com
 
-# Lets start with the packages to install.
-default_load = node['prereqs']['package_install']
-
-package [default_load] do
-  action :upgrade
-end
-
 # Set the opt directory to allow www-data to write to it
 directory '/opt' do
   user 'www-data'

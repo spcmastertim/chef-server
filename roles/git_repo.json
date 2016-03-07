@@ -1,0 +1,25 @@
+{
+  "name": "git_repo",
+  "description": "Git Repository server configuration",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "git_config": {
+			"local_path": "/media/tquinn/media/git_repo",
+			"server":  "true",
+			"connection_type": "ssh",
+			"web_display": "true"
+		}
+  },
+  "override_attributes": {
+
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[quinncloud::git_setup]"
+
+]
+,
+  "env_run_lists": {
+
+  }
+}

@@ -11,6 +11,7 @@
 #   end
 # end
 # Set up dependant recipes
+include_recipe 'users::default'
 include_recipe 'users::sysadmins'
 
 # Set up configurations for vi,bash,etc
@@ -51,6 +52,13 @@ directory '/opt/ruby' do
   mode '775'
   action :create
   not_if { ::File.exist?('/opt/ruby') }
+end
+
+# Lets start with the packages to install.
+default_load = node['prereqs']['package_install']
+
+package [default_load] do
+  action :upgrade
 end
 
 # Upload the ruby tarball to the client
@@ -101,29 +109,6 @@ gem_package 'rails' do
   ignore_failure true
 end
 
-# User management, to be moved to a loop
-# users_manage 'tquinn' do
-#   action [:create]
-#   data_bag 'tquinn'
-#   manage_nfs_home_dirs false
-# end
-#
-# users_manage 'admin' do
-#   action [:create]
-#   data_bag 'admin'
-#   manage_nfs_home_dirs false
-# end
-#
-# users_manage 'sysadmin' do
-#   group_id 2300
-#   action [:remove, :create]
-# end
-#
-# users_manage 'chef-users' do
-#   group_id 2400
-#   action [:remove, :create]
-# end
-
 directory '/home/tquinn/.ssh' do
   user 'tquinn'
   group 'tquinn'
@@ -165,10 +150,16 @@ cookbook_file '/etc/ntp.conf' do
   source 'ntp.conf_client'
   mode '0664'
   not_if { node['git_config']['server'] == true }
+  notifies :restart, 'service[ntp]', :delayed
 end
 
 cookbook_file '/etc/ntp.conf' do
   source 'ntp.conf_server'
   mode '0644'
   not_if { node['hostname'] == 'pi1' }
+  notifies :restart, 'service[ntp]', :delayed
+end
+
+service 'ntp' do
+  action :nothing
 end
