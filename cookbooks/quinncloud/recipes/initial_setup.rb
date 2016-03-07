@@ -157,3 +157,11 @@ end
 service 'sshd' do
   action :nothing
 end
+
+# Lets set up the ntp clients and one server which we will
+# detertmine by role.
+
+cookbook_file '/etc/ntp.conf' do
+  source 'ntp.conf_client'
+  mode '0664'
+end

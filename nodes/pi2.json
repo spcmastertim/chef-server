@@ -2,10 +2,13 @@
   "name": "pi2",
   "chef_environment": "prod",
   "run_list": [
-  "role[raspberry_pi]"
+  "role[raspberry_pi]",
+  "role[wordpress]"
 ]
 ,
   "normal": {
-    "tags": null
+    "tags": [
+
+    ]
   }
 }

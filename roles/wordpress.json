@@ -6,32 +6,31 @@
     "prereqs": {
       "package_install": "nginx gunicorn php5-mysql php5 mysql-server phpmyadmin"
     },
-    "site_info": {
-      "docroot": "/opt/wordpress",
-      "index_page": "index.php",
-      "user": "www_data",
-      "group": "www_data",
-      "location": "/",
-      "server_name": "www.mad13ent.com",
-      "server_alias": "www.mad13ent.net",
-      "admin_users": "tquinn,admin",
-      "local_network": "192.168.0.0/24"
-    },
     "selinux": "disabled",
+    "site_info": {
+      "admin_users": "tquinn,admin",
+      "docroot": "/opt/wordpress",
+      "group": "www_data",
+      "index_page": "index.php",
+      "local_network": "192.168.0.0/24",
+      "location": "/",
+      "server_alias": "www.mad13ent.net",
+      "server_name": "www.mad13ent.com",
+      "user": "www_data"
+    },
     "wordpress_info": {
-      "version": "4.4.2",
-      "tar_opts": "xzf",
       "exist_file": "installed",
-      "install_dir": "/opt/"
+      "install_dir": "/opt/",
+      "tar_opts": "xzf",
+      "version": "4.4.2"
     }
-
   },
   "override_attributes": {
 
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[mad13::default]"
+  "recipe[mad13::default]"
 ]
 ,
   "env_run_lists": {
