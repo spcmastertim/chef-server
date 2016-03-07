@@ -2,6 +2,11 @@ quinncloud Cookbook
 ===================
 Basic setup for the quinncloud home, including raspberryPi's and other devices. Probably not useful for many other people.
 
+ToDo
+----
+refactor to split individual services into seperate cookbooks.  
+Streamline attruibutes and set up defaults in attrubutes folder
+
 Requirements
 ------------
 - `tar` - quinncloud needs tar for installing ruby
