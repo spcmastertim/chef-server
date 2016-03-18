@@ -57,9 +57,9 @@ directory '/opt/ruby' do
 end
 
 # Lets start with the packages to install.
-default_load = node['prereqs']['package_install']
+initial_load = node['prereqs']['package_install']
 
-package [default_load] do
+package [initial_load] do
   action :upgrade
 end
 
