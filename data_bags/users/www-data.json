@@ -1,0 +1,8 @@
+{
+  "id": "www-data",
+  "comment": "web server system user",
+  "uid": 33,
+  "gid": 33,
+  "system": "true",
+  "platform": "linux"
+}

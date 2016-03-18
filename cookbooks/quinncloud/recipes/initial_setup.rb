@@ -17,7 +17,7 @@ include_recipe 'users::sysadmins'
 # Set up configurations for vi,bash,etc
 # Since we want a unified interface we will move in common config
 # files for the users and root
-%w( admin tquinn ).each do |group|
+%w( admin tquinn www-data ).each do |group|
   users_manage group do
     action :create
     data_bag 'users'
