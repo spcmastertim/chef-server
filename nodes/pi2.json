@@ -3,7 +3,8 @@
   "chef_environment": "prod",
   "run_list": [
   "role[raspberry_pi]",
-  "role[wordpress]"
+  "role[wordpress]",
+  "role[git_repo]"
 ]
 ,
   "normal": {

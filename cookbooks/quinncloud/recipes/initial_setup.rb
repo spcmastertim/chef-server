@@ -31,6 +31,7 @@ cookbook_file '/home/tquinn/.vimrc' do
   mode '0755'
   action :create
 end
+
 cookbook_file '/home/tquinn/.bashrc' do
   source 'bashrc'
   owner 'tquinn'
@@ -38,6 +39,7 @@ cookbook_file '/home/tquinn/.bashrc' do
   mode '0755'
   action :create
 end
+
 cookbook_file '/home/tquinn/.gitconfig' do
   source 'gitconfig'
   owner 'tquinn'
