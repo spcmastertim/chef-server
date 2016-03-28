@@ -1,0 +1,8 @@
+{
+  "id": "www-data",
+  "gid": 33,
+  "members": [
+    "www-data"
+  ],
+  "platform": "linux"
+}
